@@ -1,0 +1,43 @@
+{
+  "name": "krunkscript",
+  "displayName": "KrunkScript",
+  "scopeName": "source.krnk",
+  "fileTypes": [
+    "krnk"
+  ],
+  "patterns": [
+    {
+      "name": "literal.krnk",
+      "match": "\\b(num|bool|char|str|obj)\\b"
+    },
+    {
+      "name": "keyword.krnk",
+      "match": "\\b(public|action|return|if|else|for|while|addTo|remove|lengthOf|notEmpty|toStr|toNum|hasProp|break)\\b"
+    },
+    {
+      "name": "boolean.krnk",
+      "match": "\\b(GAME|true|false)\\b"
+    },
+    {
+      "name": "method.krnk",
+      "match": "\\b[_a-zA-Z][_a-zA-Z0-9]*(?=\\()"
+    },
+    {
+      "name": "variable.krnk",
+      "match": "\\b[_a-zA-Z][_a-zA-Z0-9]*\\b"
+    },
+    {
+      "name": "numeric.krnk",
+      "match": "\\d+\\.?\\d*"
+    },
+    {
+      "name": "string.krnk",
+      "match": "(\\\"[^\"\\n\\r]*\\\")|(\\'[^\\'\\n\\r]*\\')"
+    },
+    {
+      "name": "comment.krnk",
+      "match": "#.*"
+    }
+  ],
+  "repository": {}
+}

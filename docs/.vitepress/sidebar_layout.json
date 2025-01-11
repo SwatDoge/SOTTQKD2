@@ -1,0 +1,77 @@
+[
+    {
+        "text": "KrunkScript",
+        "items": [
+            {
+                "text": "GAME",
+                "collapsed": false,
+                "items": [
+                    {
+                        "text": "ADMIN",
+                        "link": "#admin"
+                    },
+                    {
+                        "text": "ADS",
+                        "link": "#ads"
+                    },
+                    {
+                        "text": "AI",
+                        "link": "#ai"
+                    },
+                    {
+                        "text": "ANIM",
+                        "link": "#anim"
+                    },
+                    {
+                        "text": "CAMERA",
+                        "link": "#camera"
+                    },
+                    {
+                        "text": "CHAT",
+                        "link": "#chat"
+                    },
+                    {
+                        "text": "CONFIG",
+                        "link": "#config"
+                    },
+                    {
+                        "text": "COOKIE",
+                        "link": "#cookie"
+                    },
+                    {
+                        "text": "DEFAULT",
+                        "link": "#default"
+                    },
+                    {
+                        "text": "INPUTS",
+                        "link": "#inputs"
+                    }
+                ]
+            },
+            {
+                "text": "UTILS",
+                "items": []
+            }
+        ]
+    },
+    {
+        "text": "Hooks",
+        "link": "#camera"
+    },
+    {
+        "text": "Objects",
+        "link": "#camera"
+    },
+    {
+        "text": "Mods",
+        "items": []
+    },
+    {
+        "text": "Trivia",
+        "items": []
+    },
+    {
+        "text": "Unimplemented",
+        "items": []
+    }
+]

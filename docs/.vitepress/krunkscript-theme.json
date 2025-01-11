@@ -1,0 +1,55 @@
+{
+    "name": "krunkscript-material-palenight-theme",
+    "displayName": "Krunkscript Material Palenight Theme",
+    "scopeName": "source.krnk",
+    "tokenColors": [
+        {
+            "scope": "comment.krnk",
+            "settings": {
+                "foreground": "#676E95"
+            }
+        },
+        {
+            "scope": "literal.krnk",
+            "settings": {
+                "foreground": "#DECB6B"
+            }
+        },
+        {
+            "scope": "keyword.krnk",
+            "settings": {
+                "foreground": "#C792EA"
+            }
+        },
+        {
+            "scope": "boolean.krnk",
+            "settings": {
+                "foreground": "#F78C6C"
+            }
+        },
+        {
+            "scope": "method.krnk",
+            "settings": {
+                "foreground": "#82aaff"
+            }
+        },
+        {
+            "scope": "variable.krnk",
+            "settings": {
+                "foreground": "#F07178"
+            }
+        },
+        {
+            "scope": "numeric.krnk",
+            "settings": {
+                "foreground": "#F78C6C"
+            }
+        },
+        {
+            "scope": "string.krnk",
+            "settings": {
+                "foreground": "#C3E88D"
+            }
+        }
+    ]
+}
