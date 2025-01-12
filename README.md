@@ -9,6 +9,7 @@ I originally stuck to the existing structure of the krunker docs, which was desi
 
 # How to help?
 [Join DQ Krunker to discuss, its easier :)](https://discord.gg/YBnq2um)
+- Feedback is always good
 - Porting knowledge from the current docs to this version with the new structure
 - Testing which methods do and do not work
 - Datamining krunker to get missing or up to date structs (i.e. player object, trigger arguments, AI behaviour, etc.)
