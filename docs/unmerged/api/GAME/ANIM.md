@@ -1,6 +1,7 @@
 # Anim
+Play animations on any imported 3d model.
+
 ## Playing and stopping animations <Badge type="tip" text="client-side"/>
-You can play animations on any imported 3d model.
 :::tip
 Scene objects, players and AI have access to the `playAnim` and `stopAnim` method, which is a recommended shorthand for the functions                    below.
 :::

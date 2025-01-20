@@ -11,7 +11,7 @@
                         "link": "#admin"
                     },
                     {
-                        "text": "ADS",
+                        "text": "ADS (BROKEN)",
                         "link": "#ads"
                     },
                     {
@@ -45,6 +45,50 @@
                     {
                         "text": "INPUTS",
                         "link": "#inputs"
+                    },
+                    {
+                        "text": "LIVE_OBJECTS",
+                        "link": "#live-objects"
+                    },
+                    {
+                        "text": "MODS",
+                        "link": "#mods"
+                    },
+                    {
+                        "text": "NETWORK",
+                        "link": "#network"
+                    },
+                    {
+                        "text": "NFT (BROKEN)",
+                        "link": "#nft"
+                    },
+                    {
+                        "text": "OVERLAY",
+                        "link": "#overlay"
+                    },
+                    {
+                        "text": "PAYMENT (BROKEN)",
+                        "link": "#payment"
+                    },
+                    {
+                        "text": "PLATFORM",
+                        "link": "#platform"
+                    },
+                    {
+                        "text": "PLAYERS",
+                        "link": "#players"
+                    },
+                    {
+                        "text": "RAYCAST (BROKEN)",
+                        "link": "#raycast"
+                    },
+                    {
+                        "text": "SCENE",
+                        "link": "#scene"
+                    },
+                    {
+                        "text": "SETTINGS",
+                        "link": "#settings"
                     }
                 ]
             },

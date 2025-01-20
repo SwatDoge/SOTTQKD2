@@ -42,9 +42,6 @@ GAME.CAMERA.lookAt(
     0,   # num y position
     0    # num z position
 );
-
-# Get the ID of the envZone the player is standing in.
-num activeZone = (num) GAME.CAMERA.envZone; # index or -1 if default
 ```
 
 ### Getting transform data
@@ -65,7 +62,7 @@ GAME.CAMERA.rotation.Z = 0; # readonly num
 
 ```krunkscript
 # Get the camera object to modify it
-GAME.CAMERA.getObj();
+obj camera = GAME.CAMERA.getObj();
 
 # Shake the camera
 GAME.CAMERA.shake(
@@ -76,4 +73,7 @@ GAME.CAMERA.shake(
 GAME.CAMERA.fov(
     90 # num (10-170)
 );
+
+# Get the ID of the envZone the player is standing in.
+num activeZone = (num) GAME.CAMERA.envZone; # index or -1 if default
 ```

@@ -1,7 +1,6 @@
 // Vitepress contentloaders suck so im just using macros
 import fs from "fs";
 import path from "path";
-import { promiseHooks } from "v8";
 
 export default async (unmergedPath: string) => {
     const unmergedFiles = fs.readdirSync(path.join(import.meta.dir, unmergedPath), {

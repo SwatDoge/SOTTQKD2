@@ -26,7 +26,7 @@ GAME.COOKIES.remove(
 );
 
 # Check if cookie exists
-GAME.COOKIES.has(
+bool hasCookie = GAME.COOKIES.has(
     "test"    # str name
 );
 ```

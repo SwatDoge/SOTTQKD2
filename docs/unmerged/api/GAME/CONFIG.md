@@ -15,14 +15,15 @@ Unimplemented feature, values below are assumptions.
 :::
 ```krunkscript
 # Get configs of a class
-GAME.CONFIG.getClasses();   # class object
-
-# Get configs of current match
-GAME.CONFIG.getMatch();     # match object
-
-# Get host settings of current match
-GAME.CONFIG.getSettings();  # match settings object
+obj[] classes = GAME.CONFIG.getClasses();   # class object
 
 # Get the weapon configs
-GAME.CONFIG.getWeapons();   # weapon object list
+obj[] weapons = GAME.CONFIG.getWeapons();   # weapon object list
+
+# Get configs of current match
+obj match = GAME.CONFIG.getMatch();         # match object
+
+# Get host settings of current match
+obj settings = GAME.CONFIG.getSettings();   # match settings object
+
 ```

@@ -1,11 +1,13 @@
 import fs from "fs"
 import path from "path"
 import merge from "../prefetch/merge"
+
 import { defineConfig } from "vitepress"
+
+import version from "../prefetch/version" with { type: "macro" }
+import mergeLayout from "./sidebar_layout.json" with { type: "json" }
 import krunkscriptLang from "./krunkscript-lang.json" with { type: "json" }
 import krunkscriptTheme from "./krunkscript-theme.json" with { type: "json" }
-import mergeLayout from "./sidebar_layout.json" with { type: "json" }
-import version from "../prefetch/version" with { type: "macro" }
 
 // Content loaders suck so I do it this way.
 fs.writeFileSync(path.join(import.meta.dir, "../merged/index.md"), await merge("../unmerged/"))
@@ -43,6 +45,8 @@ export default defineConfig({
             await shiki.loadLanguage(krunkscriptLang)
             await shiki.loadTheme(krunkscriptTheme)
         }
+    },
+    vite: {
     },
     themeConfig: {
         logo: "/images/meta/meta_logo.png",

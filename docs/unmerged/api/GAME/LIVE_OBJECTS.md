@@ -1,10 +1,15 @@
 # Live_objects
-Live objects were added to krunker in season 7, and allow players to spawn objects with clientside hitboxes. There is no rate limit on this feature and allows you to bypass the object limit of the map.
+Live objects were added to krunker in season 7, and allow players to spawn objects with clientside hitboxes.
 
-## Creating a live object
+## Creating a live object <Badge type="tip" text="server-side"/>
+:::tip
+- There is no rate limit on this feature.
+- Allows you to bypass the object limit of any map.
+- Objects created with this method show up in `GAME.OBJECTS.list()`.
+:::
 
 ```krunkscript
-GAME.LIVE_OBJECTS.addCube(
+obj cube = GAME.LIVE_OBJECTS.addCube(
     0,      # num position x 
     0,      # num position y
     0,      # num position z

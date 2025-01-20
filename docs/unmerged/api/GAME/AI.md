@@ -1,4 +1,6 @@
 # AI
+AI is the same as in the Editor, and doesnt have any pathfinding.
+
 ## Creation and deletion <Badge type="tip" text="server-side"/>
 :::warning
 You are currently limited to 40 active AIs per game
