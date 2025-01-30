@@ -5,10 +5,12 @@
 # Detach camera
 GAME.ADMIN.ban(
     player.id # Player id
-)
+);
+```
 
+```krunkscript
 # Attach camera
 GAME.ADMIN.kick(
     player.id # Player id
-)
+);
 ```

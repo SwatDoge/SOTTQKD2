@@ -1,7 +1,10 @@
 # Scene
 
 ## Create scene objects <Badge type="tip" text="client-side" vertical="middle" />
-As opposed to [LIVE_OBJECTS](live-objects), scene objects are completely client-side and don't have hitboxes.
+
+:::warning
+As opposed to [LIVE_OBJECTS](#live-objects), scene objects are completely client-side and don't have hitboxes.
+:::
 
 todo order of execution
 ### Standard objects
@@ -18,7 +21,9 @@ obj cube = GAME.SCENE.addCube(
     10,             # num length
     {}              # obj additional data
 );
+```
 
+```krunkscript
 # Add a plane to the scene
 obj plane = GAME.SCENE.addPlane(
     "28000",        # str texture asset id
@@ -30,9 +35,11 @@ obj plane = GAME.SCENE.addPlane(
     10,             # num length
     {}              # obj additional data
 );
+```
 
+```krunkscript
 # Add a sign to the scene
-GAME.SCENE.addSign(
+obj sign = GAME.SCENE.addSign(
     0,              # num x position
     10,             # num y position
     0,              # num z position
@@ -41,7 +48,9 @@ GAME.SCENE.addSign(
     "Hi :)",        # str text
     {}              # sign object todo
 );
+```
 
+```krunkscript
 # Add a sphere to the scene
 obj sphere = GAME.SCENE.addSphere(
     "28000",        # str texture asset id
@@ -54,7 +63,9 @@ obj sphere = GAME.SCENE.addSphere(
     10,             # num length
     {}              # obj sphere object todo
 );
+```
 
+```krunkscript
 # Add a sprite to the scene
 obj sprite = GAME.SCENE.addSprite(
     "28000",        # str texture asset id
@@ -68,14 +79,16 @@ obj sprite = GAME.SCENE.addSprite(
     {}              # obj additional data
 );
 ```
+### 3D models and Polygons
 :::warning
-- You can not change opacity of 3d models in krunker after you have spawned them
-- Texture changing does not work on 3d models
-- In update 5.4.2 most encodings were removed from krunker. Keep this in mind when using textureEncoding
-- alwaysRender does not work
-- Textures do not work on addCustom verts
+- Only .obj and .gltf are supported for 3d models.
+- You can not change opacity of 3d models in krunker after you have spawned them.
+- Texture changing does not work on 3d models.
+- In update 5.4.2 most encodings were removed from krunker. Keep this in mind when using textureEncoding.
+- `alwaysRender` does not work.
+- Textures do not work on addCustom verts.
 :::
-### 3D assets and Polygons
+
 ```krunkscript
 # Add an asset to the scene
 obj asset = GAME.SCENE.addAsset(
@@ -88,7 +101,9 @@ obj asset = GAME.SCENE.addAsset(
     {},             # obj additional data
     onObjectLoad    # action() callback when asset loads. (function name is function used for callback)
 );
+```
 
+```krunkscript
 # Add a polygon to the scene
 obj polygon = GAME.SCENE.addCustom(
     "236t",         # str asset texture id
@@ -118,7 +133,9 @@ obj sun = GAME.SCENE.addDirLight(
     1,              # num intensity (0-1)
     false           # bool cast shadows
 );
+```
 
+```krunkscript
 # Add a directional light to scene
 obj fluorescent = GAME.SCENE.addLightBar(
     "#fff",         # str color
@@ -129,7 +146,9 @@ obj fluorescent = GAME.SCENE.addLightBar(
     10,             # num length
     {}              # obj light object #todo
 );
+```
 
+```krunkscript
 # Add a light cone to scene
 obj lamp = GAME.SCENE.addLightCone(
     "#fff",         # str color
@@ -141,7 +160,9 @@ obj lamp = GAME.SCENE.addLightCone(
     10,             # num height
     {}              # obj light object #todo
 );
+```
 
+```krunkscript
 # Add a pointlight to scene
 obj campfire = GAME.SCENE.addPointLight(
     "#fff",         # str color
@@ -153,7 +174,9 @@ obj campfire = GAME.SCENE.addPointLight(
     1,              # num intensity (0-1)
     false           # bool cast shadows
 );
+```
 
+```krunkscript
 # Add a spotlight to scene
 obj spotlight = GAME.SCENE.addSpotLight(
     "#fff",         # str color
@@ -170,7 +193,9 @@ obj spotlight = GAME.SCENE.addSpotLight(
     1,              # num penumbra (shadow blurryness)
     false           # bool cast shadows
 );
+```
 
+```krunkscript
 # Add a rectangular light
 obj discoFloor = GAME.SCENE.addRectLight(
     "#fff",         # str color
@@ -197,11 +222,11 @@ GAME.SCENE.clear();
 # Get 2d screen position of 3d point
 obj position = GAME.SCENE.posToScreen(x, y, z);
 
-position.x;  # num x position
-position.y;  # num y position
+num x = position.x;
+num y = position.y;
 ```
 
-## Ambient
+## Ambient <Badge type="tip" text="client-side" vertical="middle" />
 ::: tip
 You can get the current envZone from [GAME.CAMERA](#misc)
 :::
@@ -212,7 +237,9 @@ todo skydome object
 GAME.SCENE.setSkyColor(
     "#fff"      # str color
 );
+```
 
+```krunkscript
 # Set skydome settings (gradient colors)
 GAME.SCENE.setSkyDome(
     "#fff",     # str hex color 1
@@ -220,7 +247,9 @@ GAME.SCENE.setSkyDome(
     "#fff",     # str hex color 3
     {}          # obj additional data
 );
+```
 
+```krunkscript
 # Fight god, take control of the sun
 GAME.SCENE.setSkyLight(
     "#fff",     # str color
@@ -229,26 +258,30 @@ GAME.SCENE.setSkyLight(
     20,         # num sun angle y (0 - 360)
     100         # num light distance (10 - 15000)
 );
+```
 
+```krunkscript
 # Adjust the ingame ambient light
 GAME.SCENE.setAmbientLight(
     "#fff",     # str color
     2           # num light intensity (0 - 3)
 );
+```
 
+```krunkscript
 # Remove skydome
 GAME.SCENE.removeSkyDome();
+```
 
+```krunkscript
 # Change fog settings
 GAME.SCENE.setFog(
     "#fff",     # str color
     100         # num distance
 );
-
-
 ```
 
-## Useless transform methods
+## Useless transform methods <Badge type="tip" text="client-side" vertical="middle" />
 Dont use this you're weird.
 
 todo base object
@@ -264,7 +297,9 @@ GAME.SCENE.movObj(
     0,      # num y position
     0       # num z position
 );
+```
 
+```krunkscript
 # Rotate an object
 GAME.SCENE.rotObj(
     cube,   # obj scene object
@@ -272,7 +307,9 @@ GAME.SCENE.rotObj(
     0,      # num y euler rotation
     0       # num z euler rotation
 );
+```
 
+```krunkscript
 # Scale an object
 GAME.SCENE.scaleObj(
     cube,   # obj scene object

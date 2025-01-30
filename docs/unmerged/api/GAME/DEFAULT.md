@@ -9,28 +9,44 @@ Additional default behavour disabling methods have been added to this list. Make
 ```krunkscript
 # Disable the 3D scene. Allows you to make a game with just GAME.OVERLAY. (client)
 GAME.DEFAULT.disable3D()
+```
 
+```krunkscript
 # Disable client prediction (client)
 GAME.DEFAULT.disablePrediction();       
+```
 
+```krunkscript
 # Disables all player logic (client & server). Use this in onPlayerUpdate hooks.
 GAME.DEFAULT.disablePlayerBehaviour();
+```
 
+```krunkscript
 # Disables player updates to other clients (server)
 GAME.DEFAULT.disableServerSync();
+```
 
+```krunkscript
 # Disables inputs (client)
 GAME.INPUTS.disableDefault();
+```
 
+```krunkscript
 # Re-enables inputs, known to be buggy (client)
 GAME.INPUTS.enableDefault();
+```
 
+```krunkscript
 # Disables most default UI (client)
 GAME.UI.hideDefault();
+```
 
+```krunkscript
 # Disables crosshair (client)
 GAME.UI.hideCrosshair();
+```
 
+```krunkscript
 # Stops visually displaying players (client)
 GAME.PLAYERS.disableMeshes();           
 ```

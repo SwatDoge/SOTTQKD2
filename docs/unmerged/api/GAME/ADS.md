@@ -7,5 +7,5 @@ You would've been able to play a video ad every 5 minutes.
 
 ```krunkscript
 # Play a video ad
-GAME.ADS.playVideo()
+GAME.ADS.playVideo();
 ```

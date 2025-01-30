@@ -14,17 +14,23 @@ GAME.COOKIES.save(
     "test",   # str name
     "100"     # str data
 );
+```
 
+```krunkscript
 # Load a cookies' value by their name
 str value = GAME.COOKIES.load(
     "test"   # str name
 );
+```
 
+```krunkscript
 # Delete a cookie
 GAME.COOKIES.remove(
     "test"   # str name
 );
+```
 
+```krunkscript
 # Check if cookie exists
 bool hasCookie = GAME.COOKIES.has(
     "test"    # str name

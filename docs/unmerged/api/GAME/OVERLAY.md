@@ -1,16 +1,16 @@
 # Overlay
 As opposed to "UI", OVERLAY uses canvas rendering to render UI. It allows you to render shapes and text on top of a 2D overlay.
 
+:::warning
+- OVERLAY only renders in the `render` hook, which runs after the `update` hook. See [order of execution] #TODO.
+- Keep in mind that default browser font families may differ for other browsers.
+:::
+
 :::tip
 - The methods here are closely based on [the original browser canvas methods](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D)
 - Canvas shapes start at the top left of your screen, setting position will offset it to the bottom right.
 - You can use a custom font-family from a mod for the canvas, as shown in the examples below.
 - To convert 3D world pos to 2d screen pos, check this method in [GAME.SCENE](#get-2d-screen-position-of-3d-world-position)
-:::
-
-:::warning
-- OVERLAY only renders in the `render` hook, which runs after the `update` hook. See [order of execution] #TODO.
-- Keep in mind that default browser font families may differ for other browsers.
 :::
 
 ## Managing the overlay <Badge type="tip" text="client-side" vertical="middle" />
@@ -20,21 +20,32 @@ GAME.OVERLAY.moveTo(
     50,     # num x position
     140     # num y position
 );
+```
 
+```krunkscript
 # Get dimensions of overlay obj{x, y} 
 obj size = GAME.OVERLAY.getSize();
 
+num x = size.x;
+num y = size.y;
+```
+
+```krunkscript
 # Move entire overlay 
 GAME.OVERLAY.offset(
     10,     # num x offset
     0       # num y offset
 );
+```
 
+```krunkscript
 # Scale overlay
 GAME.OVERLAY.scale(
     0.1     #num scale
 );
+```
 
+```krunkscript
 # Set opacity of canvas strokes
 GAME.OVERLAY.globalAlpha(
     1       # num (0-1) opacity
@@ -45,10 +56,14 @@ GAME.OVERLAY.globalAlpha(
 ```krunkscript
 # Clear overlay
 GAME.OVERLAY.clear();
+```
 
+```krunkscript
 # Save a drawing state
 GAME.OVERLAY.save();
+```
 
+```krunkscript
 # Rollback a drawing state
 GAME.OVERLAY.restore();
 ```
@@ -60,7 +75,9 @@ GAME.OVERLAY.translate(
     20,     # num x direction
     20      # num y direction
 );
+```
 
+```krunkscript
 # Transform allows you to translate an object thru a matrix
 GAME.OVERLAY.transform(
     1,      # horizontal scaling
@@ -70,7 +87,9 @@ GAME.OVERLAY.transform(
     0,      # horizontal moving
     0       # vertical moving
 );
+```
 
+```krunkscript
 # Resets the current transform and reapplies using transform()
 GAME.OVERLAY.setTransform(
     1,      # horizontal scaling
@@ -99,7 +118,9 @@ GAME.OVERLAY.drawText(
     0.9,            # num opacity
     "comic sans"    # str font
 );
+```
 
+```krunkscript
 # Get canvas text width
 num textWidth = GAME.OVERLAY.measureText(
     24,             # num fontsize
@@ -124,6 +145,7 @@ GAME.OVERLAY.drawImage(
 
 ### Lines
 ```krunkscript
+# Draw a line
 GAME.OVERLAY.drawLine(
     0,          # num x start position
     0,          # num y start position
@@ -148,8 +170,10 @@ GAME.OVERLAY.drawRect(
     0.9,        # num opacity (0 - 1)
     false       # bool center
 );
+```
 
-## Circle
+```krunkscript
+# Draw a circle
 GAME.OVERLAY.drawCircle(
     0,          # num x position
     0,          # num y position
@@ -174,10 +198,14 @@ You can completely freely create and style shapes.
 GAME.OVERLAY.fillStyle(
     "#FFF"  # str color
 );
+```
 
+```krunkscript
 # Fill a path (before stroke)
 GAME.OVERLAY.fill();
+```
 
+```krunkscript
 # Set stroke style
 GAME.OVERLAY.strokeStyle(
     "#FFF"  # str color
@@ -191,17 +219,23 @@ GAME.OVERLAY.lineTo(
     150,     # num x position
     60       # num y position
 );
+```
 
+```krunkscript
 # Set corners where two lines meet
 GAME.OVERLAY.lineJoin(
     "round"  #str type ("round", "bevel", "miter")
 );
+```
 
+```krunkscript
 # Set line width
 GAME.OVERLAY.lineWidth(
     20       # num pixel width
 );
+```
 
+```krunkscript
 # Set line dash width
 GAME.OVERLAY.lineDashOffset(
     5        # num space between dashes on line

@@ -9,12 +9,14 @@ You can send or broadcast a chat message 2 times a second.
 GAME.CHAT.send(
     player.id,      # str player id
     "hello world",  # str message
-    "#FFF"          # str color
+    "#FFF"          # str hex color
 );
+```
 
+```krunkscript
 # Broadcast message to all players
 GAME.CHAT.broadcast(
     "hello world",  # str message
-    "#FFF"          # str color
+    "#FFF"          # str hex color
 );
 ```

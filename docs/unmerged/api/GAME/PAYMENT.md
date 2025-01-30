@@ -5,9 +5,11 @@ Seemingly rushed feature, unimplemented.
 ```krunkscript
 # Charging KR from map
 GAME.PAYMENTS.charge();             # unknown
+```
 
+```krunkscript
 GAME.PAYMENTS.giveKR(
     player,                         # player object
-    val                             # int kr amount
+    0                               # int kr amount
 );
 ```

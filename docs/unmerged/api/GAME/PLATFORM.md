@@ -7,10 +7,14 @@ TODO ccs phone stuff
 ```krunkscript
 # Check if user is on mobile
 bool isMobile = GAME.PLATFORM.isMobile();
+```
 
+```krunkscript
 # Check if user is on browser
 bool isBrowser = GAME.PLATFORM.isBrowser();
+```
 
+```krunkscript
 # Check if user is using a custom client
 bool isClient = GAME.PLATFORM.isClient();
 ```

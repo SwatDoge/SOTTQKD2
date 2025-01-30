@@ -63,6 +63,10 @@
                         "link": "#nft"
                     },
                     {
+                        "text": "OBJECTS",
+                        "link": "#objects"
+                    },
+                    {
                         "text": "OVERLAY",
                         "link": "#overlay"
                     },
@@ -89,6 +93,42 @@
                     {
                         "text": "SETTINGS",
                         "link": "#settings"
+                    },
+                    {
+                        "text": "SOUND",
+                        "link": "#sound"
+                    },
+                    {
+                        "text": "STORAGE",
+                        "link": "#storage"
+                    },
+                    {
+                        "text": "TIME",
+                        "link": "#time"
+                    },
+                    {
+                        "text": "TRIGGER",
+                        "link": "#trigger"
+                    },
+                    {
+                        "text": "UI",
+                        "link": "#ui"
+                    },
+                    {
+                        "text": "URLS (BROKEN)",
+                        "link": "#urls"
+                    },
+                    {
+                        "text": ".changeGame",
+                        "link": "#changegame"
+                    },
+                    {
+                        "text": ".log",
+                        "link": "#log"
+                    },
+                    {
+                        "text": ".setTitle",
+                        "link": "#settitle"
                     }
                 ]
             },

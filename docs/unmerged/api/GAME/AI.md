@@ -20,7 +20,10 @@ obj robot = GAME.AI.spawn(
     0,          # num z position
     {}          # obj AI configuration object
 );
+```
 
+```krunkscript
+# Delete an AI from the map
 GAME.AI.remove(
     robot.sid # AI object sid
 );

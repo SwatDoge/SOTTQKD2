@@ -12,7 +12,9 @@ For a short time before aquisition, Krunker under Yendis entertainment implement
 bool hasWallet = GAME.NFT.hasWallet(
     player.id    # str player id
 );
+```
 
+```krunkscript
 # Returns unknown list type of owned NFT objects.
 GAME.NFT.ownedAssets(
     player.id,    # str player id 

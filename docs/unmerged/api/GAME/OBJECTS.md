@@ -6,11 +6,28 @@ Allows you to get information on objects in the scene.
 - For deleting and modifying objects check scene object #TODO.
 :::
 
-## Getting scene objects
-```
-# Returns an array of incomplete cube objects in a scene
-obj[] objects = GAME.SCENE.list();
+## Getting scene objects <Badge type="tip" text="client-side" vertical="middle" /> <Badge type="tip" text="server-side" vertical="middle" />
 
-# Returns an array of incomplete pathnode objects in a scene
+:::code-group
+```krunkscript [client]
+# Get a list of incomplete client scene objects
+obj[] objects = GAME.OBJECTS.list();
+```
+
+```krunkscript [server]
+# Get a list of incomplete server scene objects
+obj[] objects = GAME.OBJECTS.list();
+```
+:::
+
+:::code-group
+```krunkscript [client]
+# Get a list of incomplete client scene objects
 obj[] nodes = GAME.OBJECTS.getPathNodes();
 ```
+
+```krunkscript [server]
+# Get a list of incomplete server scene objects
+obj[] nodes = GAME.OBJECTS.getPathNodes();
+```
+:::

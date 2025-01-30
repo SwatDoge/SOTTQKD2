@@ -1,22 +1,19 @@
 # Network
 Networking allows you to send values between the server and the client.
 
-:::tip
-Receiving data is handled with the `onNetworkMessage` event.
-:::
-
-:::tip
-For constantly syncing between values on the client, like custom movement, check out registerSyncValues #TODO
-:::
-
 :::warning
 **Networking can introduce significant performance problems at scale.**
 
 - Data: 2000 bytes per message.
-- Message id string: 10 Characters.
+- Message ID is unlimited in length (krunker docs are wrong).
 - Broadcast (server to all): 10 msg per second.
 - Send (server to client): 20 msg per second per user.
 - Send (client to server): 40 msg per second.
+:::
+
+:::tip
+- Receiving data is handled with the `onNetworkMessage` event.
+- For constantly syncing between values on the client, like custom movement, check out registerSyncValues #TODO
 :::
 
 ## Sending data <Badge type="tip" text="client-side"/> <Badge type="tip" text="server-side"/>
