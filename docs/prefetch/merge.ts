@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 
 export default async (unmergedPath: string) => {
-    const unmergedFiles = fs.readdirSync(path.join(import.meta.dir, unmergedPath), {
+    const unmergedFiles = fs.readdirSync(path.join(__dirname, unmergedPath), {
         recursive: true,
         withFileTypes: true,
     })

@@ -10,7 +10,7 @@ import krunkscriptLang from "./krunkscript-lang.json" with { type: "json" }
 import krunkscriptTheme from "./krunkscript-theme.json" with { type: "json" }
 
 // Content loaders suck so I do it this way.
-fs.writeFileSync(path.join(import.meta.dir, "../merged/index.md"), await merge("../unmerged/"))
+fs.writeFileSync(path.join(__dirname, "../merged/index.md"), await merge("../unmerged/"))
 
 export default defineConfig({
     ignoreDeadLinks: true,
