@@ -7,6 +7,12 @@ Vuepress was picked up by the Vue development team and turned into Vitepress. It
 ## Structure rework
 I originally stuck to the existing structure of the krunker docs, which was designed as more of an explainer document rather than a cheatsheet, which SOTTQKD is meant to be. I am hoping this new direction will make the docs faster to use.
 
+## How to set up?
+- Install bun (or any other js runtime).
+- Open terminal in project folder:
+  - `bun i` to install dependencies.
+  - `bun dev` to run
+
 # How to help?
 [Join DQ Krunker to discuss, its easier :)](https://discord.gg/YBnq2um)
 - Feedback is always good
