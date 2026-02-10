@@ -89,5 +89,5 @@ GAME.CAMERA.fov(
 
 ```krunkscript
 # Get the ID of the envZone the player is standing in.
-num activeZone = (num) GAME.CAMERA.envZone; # index or -1 if default
+num activeZone = (num) GAME.CAMERA.envZone; # returns index or -1 if default
 ```

@@ -2,7 +2,7 @@
 UI Allows you to create DIV Elements through the browsers' DOM api. You can use this together with CSS for more freedom in UI's.
 
 ## Div element
-### Creating divs <Badge type="tip" text="client" vertical="middle" />
+### Creating divs <Badge type="tip" text="client-side" />
 ```krunkscript
 # Create a div
 str divId = GAME.UI.addDIV(
@@ -13,7 +13,7 @@ str divId = GAME.UI.addDIV(
 );
 ```
 
-### Modifying divs <Badge type="tip" text="client" vertical="middle" />
+### Modifying divs <Badge type="tip" text="client-side" />
 ```krunkscript
 # Update div style property
 GAME.UI.updateDIV(
@@ -38,7 +38,7 @@ GAME.UI.moveDIV(
 );
 ```
 
-### Reading divs <Badge type="tip" text="client" vertical="middle" /> 
+### Reading divs <Badge type="tip" text="client-side" /> 
 ```krunkscript
 # Get property of div, returns str css value
 GAME.UI.getProp(
@@ -47,7 +47,7 @@ GAME.UI.getProp(
 );
 ```
 
-### Removing divs <Badge type="tip" text="client" vertical="middle" />
+### Removing divs <Badge type="tip" text="client-side" />
 :::tip
 You can remove child divs by simply setting the text of the parent element to an empty string.
 :::
@@ -59,7 +59,7 @@ GAME.UI.removeDIV(
 );
 ```
 
-## Image element <Badge type="tip" text="client" vertical="middle" />
+## Image element <Badge type="tip" text="client-side" />
 ```krunkscript
 # Add image element
 str id = GAME.UI.addImage(
@@ -71,14 +71,13 @@ str id = GAME.UI.addImage(
 );
 ```
 
-## Global methods <Badge type="tip" text="client" vertical="middle" />
-
+## Global methods <Badge type="tip" text="client-side" />
 ```krunkscript
 # Get screen size
 obj size = GAME.UI.getSize();
 
-num x = size.x;
-num y = size.y;
+num x = (num) size.x;
+num y = (num) size.y;
 ```
 
 ```krunkscript

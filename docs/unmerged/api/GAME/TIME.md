@@ -1,6 +1,6 @@
 # Time 
 
-## Unix time <Badge type="tip" text="server-side" vertical="middle" /> <Badge type="tip" text="client-side" vertical="middle" />
+## Unix time <Badge type="tip" text="server-side" /> <Badge type="tip" text="client-side" />
 :::warning
 GAME.TIME.now() is based on system time. Its recommended to sync with server time
 :::
@@ -13,7 +13,7 @@ num unixTime = GAME.TIME.now();
 str formattedTime = GAME.TIME.getReadable(GAME.TIME.now());
 ```
 
-## Timer freeze <Badge type="tip" text="server-side" vertical="middle" />
+## Timer freeze <Badge type="tip" text="server-side" />
 The ingame timer can be paused and unpaused.
 
 ```krunkscript
@@ -26,7 +26,7 @@ GAME.TIME.freeze();
 GAME.TIME.unfreeze();
 ```
 
-## Fixed delta <Badge type="danger" text="broken" vertical="middle" />
+## Fixed delta <Badge type="danger" text="broken" />
 Game speed used to affect delta negatively, returning broken and negative delta values. Game speed was removed as a feature, this broken method is likely a remainder from that time.
 ```krunkscript
 # Returns regular delta

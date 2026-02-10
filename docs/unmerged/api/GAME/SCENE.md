@@ -1,6 +1,6 @@
 # Scene
 
-## Create scene objects <Badge type="tip" text="client-side" vertical="middle" />
+## Create scene objects <Badge type="tip" text="client-side" />
 
 :::warning
 As opposed to [LIVE_OBJECTS](#live-objects), scene objects are completely client-side and don't have hitboxes.
@@ -46,7 +46,7 @@ obj sign = GAME.SCENE.addSign(
     10,             # num width
     10,             # num length
     "Hi :)",        # str text
-    {}              # sign object todo
+    {}              # obj sign object todo
 );
 ```
 
@@ -76,7 +76,7 @@ obj sprite = GAME.SCENE.addSprite(
     8,              # num width
     4,              # num height
     10,             # num length
-    {}              # obj additional data
+    {}              # obj sprite object todo
 );
 ```
 ### 3D models and Polygons
@@ -98,8 +98,8 @@ obj asset = GAME.SCENE.addAsset(
     5,              # num z position
     1,              # num scale
     "#fff",         # str color
-    {},             # obj additional data
-    onObjectLoad    # action() callback when asset loads. (function name is function used for callback)
+    {},             # obj asset object
+    onObjectLoad    # void action() callback when asset loads. (function name is function used for callback)
 );
 ```
 
@@ -115,7 +115,7 @@ obj polygon = GAME.SCENE.addCustom(
     6,              # num width
     2,              # num height
     10,             # num length
-    {}              # obj additional data
+    {}              # obj custom data
 );
 ```
 
@@ -226,7 +226,7 @@ num x = position.x;
 num y = position.y;
 ```
 
-## Ambient <Badge type="tip" text="client-side" vertical="middle" />
+## Ambient <Badge type="tip" text="client-side" />
 ::: tip
 You can get the current envZone from [GAME.CAMERA](#misc)
 :::
@@ -281,10 +281,13 @@ GAME.SCENE.setFog(
 );
 ```
 
-## Useless transform methods <Badge type="tip" text="client-side" vertical="middle" />
+TODO
+.getBone
+
+## Useless transform methods <Badge type="tip" text="client-side" />
 Dont use this you're weird.
 
-todo base object
+todo scene object
 :::tip
 Use the .position / .rotation / .scale properties on the base scene object
 :::

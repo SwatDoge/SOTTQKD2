@@ -2,25 +2,27 @@
 ## Kicking and banning users <Badge type="tip" text="server-side"/>
 
 ```krunkscript
-# Detach camera
+# Ban player
 GAME.ADMIN.ban(
-    player.id # Player id
+    player.id # str player id
 );
 ```
 
 ```krunkscript
-# Attach camera
+# Kick player
 GAME.ADMIN.kick(
-    player.id # Player id
+    player.id # str player id
 );
 ```
 ---
 &nbsp;
 # Ads
-A feature rushed in by Yendis entertainment, never worked.
-## Video advertisement <Badge type="danger" text="broken"/>
+## Video advertisement <Badge type="danger"/>
+:::warning
+Ads played with this method get blocked by almost everything, including minimal privacy extensions.
+:::
 :::tip
-You would've been able to play a video ad every 5 minutes.
+You're able to play a video ad every 5 minutes.
 :::
 
 ```krunkscript
@@ -54,45 +56,45 @@ obj robot = GAME.AI.spawn(
 ```
 
 ```krunkscript
-# Delete an AI from the map
+# Remove an AI from the map
 GAME.AI.remove(
-    robot.sid # AI object sid
+    robot.sid # str AI object sid
 );
 ```
 
 ## Getting all AI <Badge type="tip" text="server-side"/>
 ```krunkscript
 # List AI on your map
-obj[] robots = GAME.AI.list(); # AI object list
+obj[] robots = GAME.AI.list();
 ```
 ---
 &nbsp;
 # Anim
-Play animations on any imported 3d model.
+Play animations on imported GLTF models.
 
 ## Playing and stopping animations <Badge type="tip" text="client-side"/>
 :::tip
-Scene objects, players and AI have access to the `playAnim` and `stopAnim` method, which is a recommended shorthand for the functions                    below.
+Scene objects, players and AI have access to the `playAnim` and `stopAnim` method, which is a recommended shorthand for the functions below.
 :::
 
 :::warning
-Animations only work with GLTF.
+Animations only work with GLTF models.
 :::
 
 ```krunkscript
 # Play animation
 GAME.ANIM.playClip(
-    object,     # Scene object, player object or AI object
-    "Jump",     # Animation name
-    0           # x time the animation repeats (0 = infinite)
+    object,     # obj Scene object, player object or AI object
+    "Jump",     # str animation name
+    0           # num x time the animation repeats (0 = infinite)
 );
 ```
 
 ```krunkscript
 # Stop animation
 GAME.ANIM.stopClip(
-    object,     # Scene object, player object or AI object
-    "Jump"      # Animation name
+    object,     # obj scene object, player object or AI object
+    "Jump"      # str animation name
 );
 ```
 ---
@@ -188,7 +190,7 @@ GAME.CAMERA.fov(
 
 ```krunkscript
 # Get the ID of the envZone the player is standing in.
-num activeZone = (num) GAME.CAMERA.envZone; # index or -1 if default
+num activeZone = (num) GAME.CAMERA.envZone; # returns index or -1 if default
 ```
 ---
 &nbsp;
@@ -233,12 +235,12 @@ Unimplemented feature, values below are assumptions.
 :::
 ```krunkscript
 # Get configs of a class
-obj[] classes = GAME.CONFIG.getClasses();   # class object
+obj[] classes = GAME.CONFIG.getClasses();   # class object array
 ```
 
 ```krunkscript
 # Get the weapon configs
-obj[] weapons = GAME.CONFIG.getWeapons();   # weapon object list
+obj[] weapons = GAME.CONFIG.getWeapons();   # weapon object array
 ```
 
 ```krunkscript
@@ -302,7 +304,7 @@ Additional default behavour disabling methods have been added to this list. Make
 ## Disable core features  <Badge type="tip" text="client-side"/> <Badge type="tip" text="server-side"/>
 ```krunkscript
 # Disable the 3D scene. Allows you to make a game with just GAME.OVERLAY. (client)
-GAME.DEFAULT.disable3D()
+GAME.DEFAULT.disable3D();
 ```
 
 ```krunkscript
@@ -344,6 +346,17 @@ GAME.UI.hideCrosshair();
 # Stops visually displaying players (client)
 GAME.PLAYERS.disableMeshes();           
 ```
+
+:::warning
+While `GAME.PLAYERS.toggleLOD` does toggle LODs, krunker itself doesnt use LODs. This feature will just make players invisible.
+:::
+
+```krunkscript (client)
+# Disable the level of detail of an object.
+GAME.PLAYERS.toggleLOD(
+    true    # bool enable LOD's
+);
+```
 ---
 &nbsp;
 # Inputs
@@ -363,23 +376,19 @@ Broken. Dont use. Instead use the following hooks:
 
 ```krunkscript
 # Do something when "c" (key code 67) is held down
-public action update(num delta) {
-    if (GAME.INPUTS.keyDown(67)) {
-        # do something
-    };
-}
+bool isHoldingC = GAME.INPUTS.keyDown(67);
 ```
 
 ## Enabling and disabling inputs <Badge type="tip" text="client-side"/> <Badge type="tip" text="server-side"/>
 
 ```krunkscript
 # Disables inputs
-GAME.INPUTS.disableDefault()
+GAME.INPUTS.disableDefault();
 ```
 
 ```krunkscript
 # Reenables inputs, known to be buggy
-GAME.INPUTS.enableDefault()
+GAME.INPUTS.enableDefault();
 ```
 
 ## Mouse movement and position <Badge type="danger" text="broken"/>
@@ -452,13 +461,13 @@ Mods allow you to replace the assets of the base game.
 - [settings.txt](https://krunker.io/docs/settings.txt)
 :::
 
-## Loading/unloading a mod <Badge type="tip" text="client-side" vertical="middle" />
+## Loading/unloading a mod <Badge type="tip" text="client-side" />
 ```krunkscript
 # Reset/unload mods
 GAME.MODS.reset();
 ```
 
-## Removing a mod <Badge type="tip" text="client-side" vertical="middle" />
+## Removing a mod <Badge type="tip" text="client-side" />
 :::tip
 `GAME.MODS.Reset()` foces a popup on your screen, which can be removed using:
 ```krunkscript
@@ -520,29 +529,16 @@ bool isRateLimited = GAME.NETWORK.broadcast(
     {a: 1}      # obj data
 );
 ```
-
-## Detect rate limiting <Badge type="tip" text="client-side"/> <Badge type="tip" text="server-side"/>
-When sending too many messages, krunker will rate limit you. This means that requests will not be send for a period of time.
-
-```krunkscript
-# Will return a "success" boolean, if false you are being rate limited
-if (GAME.NETWORK.broadcast("msg", {txt: "Hello there"}) {
-    # message was sent
-} 
-else {
-    # message rate limited
-}
-```
 ---
 &nbsp;
 # NFT
-For a short time before aquisition, Krunker under Yendis entertainment implemented [NFT's](https://opensea.io/Krunker/created) into krunker. The methods were never properly implemented for it.
+For a short time before aquisition, Krunker under Yendis entertainment implemented [NFT's](https://opensea.io/Krunker/created) into krunker. While the methods allegidly work, theres so few NFT owners left that its hard to test anything.
 
 :::info Developer statement
 "Added Basic NFT functions: hasWallet, ownedAssets (check docs)" ~ Yendis, patchnotes. It has never been added to the docs.
 :::
 
-## Creating a live object <Badge type="danger" text="broken"/>
+## Creating a live object <Badge type="tip" text="server-side"/>
 
 ```krunkscript
 # Check if user has a linked crypto wallet.
@@ -553,9 +549,9 @@ bool hasWallet = GAME.NFT.hasWallet(
 
 ```krunkscript
 # Returns unknown list type of owned NFT objects.
-GAME.NFT.ownedAssets(
+obj[] ownedNFTs = GAME.NFT.ownedAssets(
     player.id,    # str player id 
-    collection,   # void unknown
+    collection,   # str name of collection
     callback      # function unimplemented
 );
 ```
@@ -569,31 +565,23 @@ Allows you to get information on objects in the scene.
 - For deleting and modifying objects check scene object #TODO.
 :::
 
-## Getting scene objects <Badge type="tip" text="client-side" vertical="middle" /> <Badge type="tip" text="server-side" vertical="middle" />
+## Getting scene objects <Badge type="tip" text="client-side" /> <Badge type="tip" text="server-side" />
 
-:::code-group
-```krunkscript [client]
+```krunkscript
 # Get a list of incomplete client scene objects
 obj[] objects = GAME.OBJECTS.list();
 ```
 
-```krunkscript [server]
-# Get a list of incomplete server scene objects
-obj[] objects = GAME.OBJECTS.list();
-```
-:::
-
-:::code-group
-```krunkscript [client]
+```krunkscript
 # Get a list of incomplete client scene objects
 obj[] nodes = GAME.OBJECTS.getPathNodes();
 ```
 
-```krunkscript [server]
-# Get a list of incomplete server scene objects
-obj[] nodes = GAME.OBJECTS.getPathNodes();
+## Get object by interface ID <Badge type="tip" text="server-side" />
+#todo, shit no workey?
+```krunkscript
+obj[] objects = GAME.OBJECTS.getByInterface(id);
 ```
-:::
 ---
 &nbsp;
 # Overlay
@@ -611,7 +599,7 @@ As opposed to "UI", OVERLAY uses canvas rendering to render UI. It allows you to
 - To convert 3D world pos to 2d screen pos, check this method in [GAME.SCENE](#get-2d-screen-position-of-3d-world-position)
 :::
 
-## Managing the overlay <Badge type="tip" text="client-side" vertical="middle" />
+## Managing the overlay <Badge type="tip" text="client-side" />
 ```krunkscript
 # Move the cursor, everything gets rendered relative to this
 GAME.OVERLAY.moveTo(
@@ -639,7 +627,7 @@ GAME.OVERLAY.offset(
 ```krunkscript
 # Scale overlay
 GAME.OVERLAY.scale(
-    0.1     #num scale
+    0.1     #num scale (0-1)
 );
 ```
 
@@ -650,7 +638,7 @@ GAME.OVERLAY.globalAlpha(
 );
 ```
 
-## Overlay state <Badge type="tip" text="client-side" vertical="middle" />
+## Overlay state <Badge type="tip" text="client-side" />
 ```krunkscript
 # Clear overlay
 GAME.OVERLAY.clear();
@@ -666,7 +654,7 @@ GAME.OVERLAY.save();
 GAME.OVERLAY.restore();
 ```
 
-## Overlay transform <Badge type="tip" text="client-side" vertical="middle" />
+## Overlay transform <Badge type="tip" text="client-side" />
 ```krunkscript
 # Move path relative to itself
 GAME.OVERLAY.translate(
@@ -678,28 +666,28 @@ GAME.OVERLAY.translate(
 ```krunkscript
 # Transform allows you to translate an object thru a matrix
 GAME.OVERLAY.transform(
-    1,      # horizontal scaling
-    0,      # horizontal skewing
-    1,      # vertical skewing
-    1,      # vertical scaling
-    0,      # horizontal moving
-    0       # vertical moving
+    1,      # num horizontal scaling
+    0,      # num horizontal skewing
+    1,      # num vertical skewing
+    1,      # num vertical scaling
+    0,      # num horizontal moving
+    0       # num vertical moving
 );
 ```
 
 ```krunkscript
 # Resets the current transform and reapplies using transform()
 GAME.OVERLAY.setTransform(
-    1,      # horizontal scaling
-    0,      # horizontal skewing
-    1,      # vertical skewing
-    1,      # vertical scaling
-    0,      # horizontal moving
-    0       # vertical moving
+    1,      # num horizontal scaling
+    0,      # num horizontal skewing
+    1,      # num vertical skewing
+    1,      # num vertical scaling
+    0,      # num horizontal moving
+    0       # num vertical moving
 );
 ```
 
-## Basic drawing <Badge type="tip" text="client-side" vertical="middle" />
+## Basic drawing <Badge type="tip" text="client-side" />
 These methods don't need a path to be rendered on the canvas.
 
 ### Text
@@ -784,7 +772,7 @@ GAME.OVERLAY.drawCircle(
 );
 ```
 
-## Freeform strokes and paths <Badge type="tip" text="client-side" vertical="middle" />
+## Freeform strokes and paths <Badge type="tip" text="client-side" />
 You can completely freely create and style shapes.
 1. An overlay consists of a "cursor".
 2. Any draw methods you call from this cursor creates a "path", which gets styled with the styles of the "stroke"
@@ -822,7 +810,7 @@ GAME.OVERLAY.lineTo(
 ```krunkscript
 # Set corners where two lines meet
 GAME.OVERLAY.lineJoin(
-    "round"  #str type ("round", "bevel", "miter")
+    "round"  # str type ("round", "bevel", "miter")
 );
 ```
 
@@ -876,7 +864,7 @@ GAME.OVERLAY.arc(
 ---
 &nbsp;
 # Payment
-Seemingly rushed feature, unimplemented.
+Allegidley works. Not functional during testing.
 
 ## Spending & giving KR <Badge type="danger" text="broken"/>
 ```krunkscript
@@ -923,33 +911,38 @@ todo tip player objects
 GAME.PLAYERS.findByID() and GAME.PLAYERS.list() return instances, not references.
 :::
 
-## Get player objects <Badge type="tip" text="client-side" vertical="middle" />
+## Get player objects <Badge type="tip" text="client-side" />
 ```krunkscript
 # Get a list of all players in the server
-obj[] players = GAME.PLAYERS.getSelf();
+obj[] players = GAME.PLAYERS.list();
 ```
 
 ```krunkscript
 # Get own player object
-obj player = GAME.PLAYERS.list();
+obj player = GAME.PLAYERS.getSelf();
 ```
 
 ```krunkscript
 # Get player object from specified player
-GAME.PLAYERS.findByID(
+obj player = GAME.PLAYERS.findByID(
     player.id   # str player id
 );
 ```
 
-## Disable player meshes <Badge type="tip" text="client-side" vertical="middle" />
+
 ```krunkscript
-# Disables player meshes
+# Disables player meshes (client)
 GAME.PLAYERS.disableMeshes();
 ```
 
-## Remove LOD's <Badge type="danger" text="broken" vertical="middle" />
-```krunkscript
-# Disable the level of detail of an object
+## Disable player features <Badge type="tip" text="client-side" />
+
+:::warning
+While `GAME.PLAYERS.toggleLOD` does toggle LODs, krunker itself doesnt use LODs. This feature will just make players invisible.
+:::
+
+```krunkscript (client)
+# Disable the level of detail of an object.
 GAME.PLAYERS.toggleLOD(
     true    # bool enable LOD's
 );
@@ -987,7 +980,7 @@ GAME.RAYCAST.fromPlayer(
 &nbsp;
 # Scene
 
-## Create scene objects <Badge type="tip" text="client-side" vertical="middle" />
+## Create scene objects <Badge type="tip" text="client-side" />
 
 :::warning
 As opposed to [LIVE_OBJECTS](#live-objects), scene objects are completely client-side and don't have hitboxes.
@@ -1033,7 +1026,7 @@ obj sign = GAME.SCENE.addSign(
     10,             # num width
     10,             # num length
     "Hi :)",        # str text
-    {}              # sign object todo
+    {}              # obj sign object todo
 );
 ```
 
@@ -1063,7 +1056,7 @@ obj sprite = GAME.SCENE.addSprite(
     8,              # num width
     4,              # num height
     10,             # num length
-    {}              # obj additional data
+    {}              # obj sprite object todo
 );
 ```
 ### 3D models and Polygons
@@ -1085,8 +1078,8 @@ obj asset = GAME.SCENE.addAsset(
     5,              # num z position
     1,              # num scale
     "#fff",         # str color
-    {},             # obj additional data
-    onObjectLoad    # action() callback when asset loads. (function name is function used for callback)
+    {},             # obj asset object
+    onObjectLoad    # void action() callback when asset loads. (function name is function used for callback)
 );
 ```
 
@@ -1102,7 +1095,7 @@ obj polygon = GAME.SCENE.addCustom(
     6,              # num width
     2,              # num height
     10,             # num length
-    {}              # obj additional data
+    {}              # obj custom data
 );
 ```
 
@@ -1213,7 +1206,7 @@ num x = position.x;
 num y = position.y;
 ```
 
-## Ambient <Badge type="tip" text="client-side" vertical="middle" />
+## Ambient <Badge type="tip" text="client-side" />
 ::: tip
 You can get the current envZone from [GAME.CAMERA](#misc)
 :::
@@ -1268,10 +1261,13 @@ GAME.SCENE.setFog(
 );
 ```
 
-## Useless transform methods <Badge type="tip" text="client-side" vertical="middle" />
+TODO
+.getBone
+
+## Useless transform methods <Badge type="tip" text="client-side" />
 Dont use this you're weird.
 
-todo base object
+todo scene object
 :::tip
 Use the .position / .rotation / .scale properties on the base scene object
 :::
@@ -1309,12 +1305,12 @@ GAME.SCENE.scaleObj(
 &nbsp;
 # Settings
 
-## Changing settings <Badge type="tip" text="client-side" vertical="middle" />
+## Changing settings <Badge type="tip" text="client-side" />
 ```krunkscript
 # Set a setting for a player
 GAME.SETTINGS.set(
     "defaultSkins",     # str setting name
-    true               # bool setting value
+    true                # bool setting value
 );
 ```
 
@@ -1325,7 +1321,7 @@ GAME.SETTINGS.get(
 );
 ```
 
-## Listing all setting names <Badge type="tip" text="client-side" vertical="middle" />
+## Listing all setting names <Badge type="tip" text="client-side" />
 :::tip
 You can also get all existing settings from [this site](https://krunker.io/docs/settings.txt)
 :::
@@ -1340,7 +1336,7 @@ GAME.SETTINGS.list();
 :::tip
 The sound asset id parameter will automatically convert str's to num's as of update 5.5.0
 :::
-## Playing sound <Badge type="tip" text="client-side" vertical="middle" />
+## Playing sound <Badge type="tip" text="client-side" />
 ```krunkscript
 # Play sound globally (doesn't fade over distance)
 obj sound = GAME.SOUND.play2D(
@@ -1364,11 +1360,11 @@ obj sound = GAME.SOUND.play3D(
 );
 ```
 
-## Stopping audio <Badge type="tip" text="client-side" vertical="middle" />
+## Stopping audio <Badge type="tip" text="client-side" />
 ```krunkscript
 GAME.SOUND.stop(
-    37204
-)
+    37204   # str asset id
+);
 ```
 ---
 &nbsp;
@@ -1390,7 +1386,7 @@ GAME.SOUND.stop(
 - Due to rate limit restrictions, its recommended to temporarily load player data on the serverside upon `onPlayerSpawn`, modify the received object during a players lifetime, then load it back into `STORAGE` when `onPlayerLeave` or `onServerClosed` is called.
 :::
 
-## Setting/updating storage <Badge type="tip" text="server-side" vertical="middle" />
+## Setting/updating storage <Badge type="tip" text="server-side" />
 :::warning
 - Set, update, transact every 10 seconds per connection/player.
 - 30 Keys per map, keys length is 20 characters. (Object properties are treated as unique database keys).
@@ -1427,7 +1423,7 @@ GAME.STORAGE.transact(
 );
 ```
 
-## (Cross-)Loading storage <Badge type="tip" text="server-side" vertical="middle" />
+## (Cross-)Loading storage <Badge type="tip" text="server-side" />
 :::danger
 - Loading from an empty database will result in an error message "No data" and not call the callback. Make sure to update every value to an empty base value using `GAME.STORAGE.update`.
 :::
@@ -1454,7 +1450,7 @@ GAME.STORAGE.load(
 );
 ```
 
-## Delete storage <Badge type="tip" text="server-side" vertical="middle" />
+## Delete storage <Badge type="tip" text="server-side" />
 # todo
 To delete data storage values you can create a `delete all` key and load it into the Storage.
 ```krunkscript
@@ -1470,7 +1466,7 @@ GAME.STORAGE.set(
 &nbsp;
 # Time 
 
-## Unix time <Badge type="tip" text="server-side" vertical="middle" /> <Badge type="tip" text="client-side" vertical="middle" />
+## Unix time <Badge type="tip" text="server-side" /> <Badge type="tip" text="client-side" />
 :::warning
 GAME.TIME.now() is based on system time. Its recommended to sync with server time
 :::
@@ -1483,7 +1479,7 @@ num unixTime = GAME.TIME.now();
 str formattedTime = GAME.TIME.getReadable(GAME.TIME.now());
 ```
 
-## Timer freeze <Badge type="tip" text="server-side" vertical="middle" />
+## Timer freeze <Badge type="tip" text="server-side" />
 The ingame timer can be paused and unpaused.
 
 ```krunkscript
@@ -1496,7 +1492,7 @@ GAME.TIME.freeze();
 GAME.TIME.unfreeze();
 ```
 
-## Fixed delta <Badge type="danger" text="broken" vertical="middle" />
+## Fixed delta <Badge type="danger" text="broken" />
 Game speed used to affect delta negatively, returning broken and negative delta values. Game speed was removed as a feature, this broken method is likely a remainder from that time.
 ```krunkscript
 # Returns regular delta
@@ -1506,36 +1502,36 @@ num delta = GAME.TIME.fixedDelta();
 &nbsp;
 # Trigger
 :::tip
-There is no rate-limiting on this feature. (wink wink)
+There is no rate-limiting on this feature.
 :::
-## Execute triggers <Badge type="tip" text="server" vertical="middle" />
+## Execute triggers <Badge type="tip" text="server-side" />
+TODO allegidly fixed
 ```krunkscript
 # Call a trigger
-GAME.TRIGGER.execute(
+GAME.TRIGGERS.execute(
     id,         # num trigger interface id
-    todo
+    # todo trigger object
 );
 ```
 
-## List triggers <Badge type="tip" text="server" vertical="middle" /> <Badge type="tip" text="client" vertical="middle" />
-:::code-group
-```krunkscript [client]
+## Get trigger by interface ID <Badge type="tip" text="server-side" />
+```krunkscript
+obj[] triggers = GAME.TRIGGERS.getByInterface(id);
+```
+
+## List triggers <Badge type="tip" text="server-side" /> <Badge type="tip" text="client-side" />
+
+```krunkscript
 # Get a list of incomplete server scene objects
 obj[] triggers = GAME.TRIGGERS.list();
 ```
-
-```krunkscript [server]
-# Get a list of incomplete client scene objects
-obj[] triggers = GAME.TRIGGERS.list();
-```
-:::
 ---
 &nbsp;
 # UI
 UI Allows you to create DIV Elements through the browsers' DOM api. You can use this together with CSS for more freedom in UI's.
 
 ## Div element
-### Creating divs <Badge type="tip" text="client" vertical="middle" />
+### Creating divs <Badge type="tip" text="client-side" />
 ```krunkscript
 # Create a div
 str divId = GAME.UI.addDIV(
@@ -1546,7 +1542,7 @@ str divId = GAME.UI.addDIV(
 );
 ```
 
-### Modifying divs <Badge type="tip" text="client" vertical="middle" />
+### Modifying divs <Badge type="tip" text="client-side" />
 ```krunkscript
 # Update div style property
 GAME.UI.updateDIV(
@@ -1571,7 +1567,7 @@ GAME.UI.moveDIV(
 );
 ```
 
-### Reading divs <Badge type="tip" text="client" vertical="middle" /> 
+### Reading divs <Badge type="tip" text="client-side" /> 
 ```krunkscript
 # Get property of div, returns str css value
 GAME.UI.getProp(
@@ -1580,7 +1576,7 @@ GAME.UI.getProp(
 );
 ```
 
-### Removing divs <Badge type="tip" text="client" vertical="middle" />
+### Removing divs <Badge type="tip" text="client-side" />
 :::tip
 You can remove child divs by simply setting the text of the parent element to an empty string.
 :::
@@ -1592,7 +1588,7 @@ GAME.UI.removeDIV(
 );
 ```
 
-## Image element <Badge type="tip" text="client" vertical="middle" />
+## Image element <Badge type="tip" text="client-side" />
 ```krunkscript
 # Add image element
 str id = GAME.UI.addImage(
@@ -1604,14 +1600,13 @@ str id = GAME.UI.addImage(
 );
 ```
 
-## Global methods <Badge type="tip" text="client" vertical="middle" />
-
+## Global methods <Badge type="tip" text="client-side" />
 ```krunkscript
 # Get screen size
 obj size = GAME.UI.getSize();
 
-num x = size.x;
-num y = size.y;
+num x = (num) size.x;
+num y = (num) size.y;
 ```
 
 ```krunkscript
@@ -1626,7 +1621,8 @@ GAME.UI.hideDefault();
 &nbsp;
 # URLs
 This feature never worked.
-## Opening urls <Badge type="danger" text="broken" vertical="middle" />
+
+## Opening urls <Badge type="danger" text="broken" />
 ```krunkscript
 GAME.URLS.openDiscord(
     "YBnq2um"                                                           # str discord invite url
@@ -1654,24 +1650,32 @@ GAME.URLS.openYoutube(
 ```krunkscript
 # Change the match to be a different map
 GAME.changeGame(
-    "DQ_Battleboats"        # Map name
+    "DQ_Battleboats"        # str map name
+    {                       # obj change game object
+        host: true,
+        private: true
+    }
 );
 ```
 ---
 &nbsp;
 # Log
+Logs messages to the inspect element developer console. Useful for debugging.
+The developer console can be opened with `F12` or `CTRL + SHIFT + I`
 
 ```krunkscript
 # Log to inspect element console
 GAME.log(
-    "title"         #any
+    "title"         # any
 );
 ```
 
 ```krunkscript
 # An infinte amount of arguments can be logged of all types.
 GAME.log(
-    0, "test", GAME.PLAYERS.getSelf()
+    0, 
+    "test", 
+    GAME.PLAYERS.getSelf()
 );
 ```
 ---

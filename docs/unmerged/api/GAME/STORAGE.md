@@ -16,7 +16,7 @@
 - Due to rate limit restrictions, its recommended to temporarily load player data on the serverside upon `onPlayerSpawn`, modify the received object during a players lifetime, then load it back into `STORAGE` when `onPlayerLeave` or `onServerClosed` is called.
 :::
 
-## Setting/updating storage <Badge type="tip" text="server-side" vertical="middle" />
+## Setting/updating storage <Badge type="tip" text="server-side" />
 :::warning
 - Set, update, transact every 10 seconds per connection/player.
 - 30 Keys per map, keys length is 20 characters. (Object properties are treated as unique database keys).
@@ -53,7 +53,7 @@ GAME.STORAGE.transact(
 );
 ```
 
-## (Cross-)Loading storage <Badge type="tip" text="server-side" vertical="middle" />
+## (Cross-)Loading storage <Badge type="tip" text="server-side" />
 :::danger
 - Loading from an empty database will result in an error message "No data" and not call the callback. Make sure to update every value to an empty base value using `GAME.STORAGE.update`.
 :::
@@ -80,7 +80,7 @@ GAME.STORAGE.load(
 );
 ```
 
-## Delete storage <Badge type="tip" text="server-side" vertical="middle" />
+## Delete storage <Badge type="tip" text="server-side" />
 # todo
 To delete data storage values you can create a `delete all` key and load it into the Storage.
 ```krunkscript

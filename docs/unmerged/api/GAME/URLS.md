@@ -1,6 +1,7 @@
 # URLs
 This feature never worked.
-## Opening urls <Badge type="danger" text="broken" vertical="middle" />
+
+## Opening urls <Badge type="danger" text="broken" />
 ```krunkscript
 GAME.URLS.openDiscord(
     "YBnq2um"                                                           # str discord invite url

@@ -1,5 +1,5 @@
 # Payment
-Seemingly rushed feature, unimplemented.
+Allegidley works. Not functional during testing.
 
 ## Spending & giving KR <Badge type="danger" text="broken"/>
 ```krunkscript

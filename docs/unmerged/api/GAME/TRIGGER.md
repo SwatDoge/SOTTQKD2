@@ -1,25 +1,25 @@
 # Trigger
 :::tip
-There is no rate-limiting on this feature. (wink wink)
+There is no rate-limiting on this feature.
 :::
-## Execute triggers <Badge type="tip" text="server" vertical="middle" />
+## Execute triggers <Badge type="tip" text="server-side" />
+TODO allegidly fixed
 ```krunkscript
 # Call a trigger
-GAME.TRIGGER.execute(
+GAME.TRIGGERS.execute(
     id,         # num trigger interface id
-    todo
+    # todo trigger object
 );
 ```
 
-## List triggers <Badge type="tip" text="server" vertical="middle" /> <Badge type="tip" text="client" vertical="middle" />
-:::code-group
-```krunkscript [client]
+## Get trigger by interface ID <Badge type="tip" text="server-side" />
+```krunkscript
+obj[] triggers = GAME.TRIGGERS.getByInterface(id);
+```
+
+## List triggers <Badge type="tip" text="server-side" /> <Badge type="tip" text="client-side" />
+
+```krunkscript
 # Get a list of incomplete server scene objects
 obj[] triggers = GAME.TRIGGERS.list();
 ```
-
-```krunkscript [server]
-# Get a list of incomplete client scene objects
-obj[] triggers = GAME.TRIGGERS.list();
-```
-:::

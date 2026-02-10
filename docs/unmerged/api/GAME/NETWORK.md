@@ -43,16 +43,3 @@ bool isRateLimited = GAME.NETWORK.broadcast(
     {a: 1}      # obj data
 );
 ```
-
-## Detect rate limiting <Badge type="tip" text="client-side"/> <Badge type="tip" text="server-side"/>
-When sending too many messages, krunker will rate limit you. This means that requests will not be send for a period of time.
-
-```krunkscript
-# Will return a "success" boolean, if false you are being rate limited
-if (GAME.NETWORK.broadcast("msg", {txt: "Hello there"}) {
-    # message was sent
-} 
-else {
-    # message rate limited
-}
-```

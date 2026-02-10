@@ -13,7 +13,7 @@ As opposed to "UI", OVERLAY uses canvas rendering to render UI. It allows you to
 - To convert 3D world pos to 2d screen pos, check this method in [GAME.SCENE](#get-2d-screen-position-of-3d-world-position)
 :::
 
-## Managing the overlay <Badge type="tip" text="client-side" vertical="middle" />
+## Managing the overlay <Badge type="tip" text="client-side" />
 ```krunkscript
 # Move the cursor, everything gets rendered relative to this
 GAME.OVERLAY.moveTo(
@@ -41,7 +41,7 @@ GAME.OVERLAY.offset(
 ```krunkscript
 # Scale overlay
 GAME.OVERLAY.scale(
-    0.1     #num scale
+    0.1     #num scale (0-1)
 );
 ```
 
@@ -52,7 +52,7 @@ GAME.OVERLAY.globalAlpha(
 );
 ```
 
-## Overlay state <Badge type="tip" text="client-side" vertical="middle" />
+## Overlay state <Badge type="tip" text="client-side" />
 ```krunkscript
 # Clear overlay
 GAME.OVERLAY.clear();
@@ -68,7 +68,7 @@ GAME.OVERLAY.save();
 GAME.OVERLAY.restore();
 ```
 
-## Overlay transform <Badge type="tip" text="client-side" vertical="middle" />
+## Overlay transform <Badge type="tip" text="client-side" />
 ```krunkscript
 # Move path relative to itself
 GAME.OVERLAY.translate(
@@ -80,28 +80,28 @@ GAME.OVERLAY.translate(
 ```krunkscript
 # Transform allows you to translate an object thru a matrix
 GAME.OVERLAY.transform(
-    1,      # horizontal scaling
-    0,      # horizontal skewing
-    1,      # vertical skewing
-    1,      # vertical scaling
-    0,      # horizontal moving
-    0       # vertical moving
+    1,      # num horizontal scaling
+    0,      # num horizontal skewing
+    1,      # num vertical skewing
+    1,      # num vertical scaling
+    0,      # num horizontal moving
+    0       # num vertical moving
 );
 ```
 
 ```krunkscript
 # Resets the current transform and reapplies using transform()
 GAME.OVERLAY.setTransform(
-    1,      # horizontal scaling
-    0,      # horizontal skewing
-    1,      # vertical skewing
-    1,      # vertical scaling
-    0,      # horizontal moving
-    0       # vertical moving
+    1,      # num horizontal scaling
+    0,      # num horizontal skewing
+    1,      # num vertical skewing
+    1,      # num vertical scaling
+    0,      # num horizontal moving
+    0       # num vertical moving
 );
 ```
 
-## Basic drawing <Badge type="tip" text="client-side" vertical="middle" />
+## Basic drawing <Badge type="tip" text="client-side" />
 These methods don't need a path to be rendered on the canvas.
 
 ### Text
@@ -186,7 +186,7 @@ GAME.OVERLAY.drawCircle(
 );
 ```
 
-## Freeform strokes and paths <Badge type="tip" text="client-side" vertical="middle" />
+## Freeform strokes and paths <Badge type="tip" text="client-side" />
 You can completely freely create and style shapes.
 1. An overlay consists of a "cursor".
 2. Any draw methods you call from this cursor creates a "path", which gets styled with the styles of the "stroke"
@@ -224,7 +224,7 @@ GAME.OVERLAY.lineTo(
 ```krunkscript
 # Set corners where two lines meet
 GAME.OVERLAY.lineJoin(
-    "round"  #str type ("round", "bevel", "miter")
+    "round"  # str type ("round", "bevel", "miter")
 );
 ```
 

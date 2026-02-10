@@ -14,7 +14,7 @@ hero:
       link: /merged/
     - theme: alt
       text: Unmerged docs ->
-      link: /unmerged/
+      link: /unmerged/api/GAME/
 features:
   - title: KrunkScript only
     details: No documentation about the editor or making money.

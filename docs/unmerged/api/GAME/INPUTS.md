@@ -15,23 +15,19 @@ Broken. Dont use. Instead use the following hooks:
 
 ```krunkscript
 # Do something when "c" (key code 67) is held down
-public action update(num delta) {
-    if (GAME.INPUTS.keyDown(67)) {
-        # do something
-    };
-}
+bool isHoldingC = GAME.INPUTS.keyDown(67);
 ```
 
 ## Enabling and disabling inputs <Badge type="tip" text="client-side"/> <Badge type="tip" text="server-side"/>
 
 ```krunkscript
 # Disables inputs
-GAME.INPUTS.disableDefault()
+GAME.INPUTS.disableDefault();
 ```
 
 ```krunkscript
 # Reenables inputs, known to be buggy
-GAME.INPUTS.enableDefault()
+GAME.INPUTS.enableDefault();
 ```
 
 ## Mouse movement and position <Badge type="danger" text="broken"/>

@@ -15,12 +15,12 @@ Unimplemented feature, values below are assumptions.
 :::
 ```krunkscript
 # Get configs of a class
-obj[] classes = GAME.CONFIG.getClasses();   # class object
+obj[] classes = GAME.CONFIG.getClasses();   # class object array
 ```
 
 ```krunkscript
 # Get the weapon configs
-obj[] weapons = GAME.CONFIG.getWeapons();   # weapon object list
+obj[] weapons = GAME.CONFIG.getWeapons();   # weapon object array
 ```
 
 ```krunkscript

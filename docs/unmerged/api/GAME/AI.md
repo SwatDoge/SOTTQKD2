@@ -23,14 +23,14 @@ obj robot = GAME.AI.spawn(
 ```
 
 ```krunkscript
-# Delete an AI from the map
+# Remove an AI from the map
 GAME.AI.remove(
-    robot.sid # AI object sid
+    robot.sid # str AI object sid
 );
 ```
 
 ## Getting all AI <Badge type="tip" text="server-side"/>
 ```krunkscript
 # List AI on your map
-obj[] robots = GAME.AI.list(); # AI object list
+obj[] robots = GAME.AI.list();
 ```

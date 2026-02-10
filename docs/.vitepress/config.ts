@@ -1,16 +1,16 @@
-import fs from "fs"
-import path from "path"
-import merge from "../prefetch/merge"
+import fs from "fs";
+import path from "path";
+import merge from "../macros/merge";
 
-import { defineConfig } from "vitepress"
+import { defineConfig } from "vitepress";
 
-import version from "../prefetch/version" with { type: "macro" }
-import mergeLayout from "./sidebar_layout.json" with { type: "json" }
-import krunkscriptLang from "./krunkscript-lang.json" with { type: "json" }
-import krunkscriptTheme from "./krunkscript-theme.json" with { type: "json" }
+import version from "../macros/version" with { type: "macro" };
+import mergeLayout from "./sidebar_layout.json" with { type: "json" };
+import krunkscriptLang from "./krunkscript-lang.json" with { type: "json" };
+import krunkscriptTheme from "./krunkscript-theme.json" with { type: "json" };
 
 // Content loaders suck so I do it this way.
-fs.writeFileSync(path.join(__dirname, "../merged/index.md"), await merge("../unmerged/"))
+fs.writeFileSync(path.join(__dirname, "../merged/index.md"), await merge("../unmerged/"));
 
 export default defineConfig({
     ignoreDeadLinks: true,
@@ -42,8 +42,8 @@ export default defineConfig({
     markdown: {
         theme: krunkscriptTheme,
         shikiSetup: async (shiki) => {
-            await shiki.loadLanguage(krunkscriptLang)
-            await shiki.loadTheme(krunkscriptTheme)
+            await shiki.loadLanguage(krunkscriptLang);
+            await shiki.loadTheme(krunkscriptTheme);
         }
     },
     vite: {
@@ -59,6 +59,39 @@ export default defineConfig({
         notFound: {
             quote: "404 ez lyf ez suiside"
         },
-        siteTitle: `FRVR Krunker ${await version()}`
+        siteTitle: `FRVR Krunker ${await version()}`,
+        nav: [
+            {
+                text: 'Game objects',
+                items: [
+                    { text: 'Ai object', link: '/item-1' },
+                    { text: 'Ai configuration object', link: '/item-1' },
+                    { text: 'Ai projectile configuration object', link: '/item-1' },
+                    { text: 'Camera object', link: '/item-1' },
+                    { text: 'Change game object', link: '/item-1' },
+                    { text: 'Class object', link: '/item-1' },
+                    { text: 'Player object', link: '/item-1' },
+                    { text: 'Weapon object', link: '/item-1' },
+                    { text: 'Match object', link: '/item-1' },
+                    { text: 'Match settings object', link: '/item-1' },
+                    { text: 'NFT object', link: '/item-1' },
+                    { text: 'Skydome object', link: '/item-1' },
+                    { text: 'Trigger objects', link: '/item-1' },
+                    { text: 'Minimal trigger objects', link: '/item-1' },
+                    { text: 'Scene object', link: '/item-1' },
+                    { text: 'Scene config object', link: '/item-1' },
+                    { text: 'Live scene minimal object', link: '/item-1' },
+                    { text: 'Live scene config object', link: '/item-1' },
+                    { text: 'Scene minimal object', link: '/item-1' },
+                    { text: 'Pathnode minimal object', link: '/item-1' },
+                    { text: 'Sign scene object', link: '/item-1' },
+                    { text: 'Sphere scene object', link: '/item-1' },
+                    { text: 'Sprite scene object', link: '/item-1' },
+                    { text: 'Asset scene object', link: '/item-1' },
+                    { text: 'Custom scene object', link: '/item-1' },
+                    { text: 'Light scene object', link: '/item-1' }
+                ]
+            }
+        ]
     }
-})
+});

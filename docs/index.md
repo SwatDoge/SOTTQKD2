@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { useRouter } from "vitepress"
+    import { useRouter } from "vitepress";
 
-const router = useRouter()
+    const router = useRouter();
+    let onSite = false;
 
-if (window.visit == "true") {
-    router.go("/home");
-}
-else {
-    router.go("/merged");
-}
-
-window.visit = "true";
-
+    if (onSite) {
+        router.go("/home");
+    }
+    else {
+        router.go("/merged");
+    }
+    
+    onSite = true;
 </script>

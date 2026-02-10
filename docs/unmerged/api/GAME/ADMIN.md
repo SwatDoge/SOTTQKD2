@@ -2,15 +2,15 @@
 ## Kicking and banning users <Badge type="tip" text="server-side"/>
 
 ```krunkscript
-# Detach camera
+# Ban player
 GAME.ADMIN.ban(
-    player.id # Player id
+    player.id # str player id
 );
 ```
 
 ```krunkscript
-# Attach camera
+# Kick player
 GAME.ADMIN.kick(
-    player.id # Player id
+    player.id # str player id
 );
 ```

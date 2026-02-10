@@ -2,7 +2,7 @@
 :::tip
 The sound asset id parameter will automatically convert str's to num's as of update 5.5.0
 :::
-## Playing sound <Badge type="tip" text="client-side" vertical="middle" />
+## Playing sound <Badge type="tip" text="client-side" />
 ```krunkscript
 # Play sound globally (doesn't fade over distance)
 obj sound = GAME.SOUND.play2D(
@@ -26,9 +26,9 @@ obj sound = GAME.SOUND.play3D(
 );
 ```
 
-## Stopping audio <Badge type="tip" text="client-side" vertical="middle" />
+## Stopping audio <Badge type="tip" text="client-side" />
 ```krunkscript
 GAME.SOUND.stop(
-    37204
-)
+    37204   # str asset id
+);
 ```

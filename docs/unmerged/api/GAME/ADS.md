@@ -1,8 +1,10 @@
 # Ads
-A feature rushed in by Yendis entertainment, never worked.
-## Video advertisement <Badge type="danger" text="broken"/>
+## Video advertisement <Badge type="danger"/>
+:::warning
+Ads played with this method get blocked by almost everything, including minimal privacy extensions.
+:::
 :::tip
-You would've been able to play a video ad every 5 minutes.
+You're able to play a video ad every 5 minutes.
 :::
 
 ```krunkscript
