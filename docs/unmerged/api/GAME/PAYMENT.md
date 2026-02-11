@@ -1,15 +1,15 @@
 # Payment
-Allegidley works. Not functional during testing.
 
-## Spending & giving KR <Badge type="danger" text="broken"/>
+## Charging KR <Badge type="danger" text="broken"/>
 ```krunkscript
-# Charging KR from map
+# Charging KR from map, non-functional.
 GAME.PAYMENTS.charge();             # unknown
 ```
 
+## Giving KR
 ```krunkscript
 GAME.PAYMENTS.giveKR(
-    player,                         # player object
+    player.id,                      # str player id
     0                               # int kr amount
 );
 ```

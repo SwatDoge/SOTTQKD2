@@ -16,9 +16,9 @@ bool hasWallet = GAME.NFT.hasWallet(
 
 ```krunkscript
 # Returns unknown list type of owned NFT objects.
-obj[] ownedNFTs = GAME.NFT.ownedAssets(
+GAME.NFT.ownedAssets(
     player.id,    # str player id 
     collection,   # str name of collection
-    callback      # function unimplemented
+    callback      # function(bool succesful, obj[] assets) callback
 );
 ```

@@ -23,9 +23,8 @@ obj player = GAME.PLAYERS.findByID(
 );
 ```
 
-
 ```krunkscript
-# Disables player meshes (client)
+# Disables player meshes
 GAME.PLAYERS.disableMeshes();
 ```
 

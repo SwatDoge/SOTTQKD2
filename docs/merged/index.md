@@ -448,7 +448,7 @@ obj cube = GAME.LIVE_OBJECTS.addCube(
     10,     # num height
     10,     # num length
     0,      # num void (6 sized array of 0's and 1's, intended to represent which faces are enabled. Scrapped feature.)
-    {}      # TODO, incomplete scene object
+    {}      # TODO, minimal scene object
 );
 ```
 
@@ -549,10 +549,10 @@ bool hasWallet = GAME.NFT.hasWallet(
 
 ```krunkscript
 # Returns unknown list type of owned NFT objects.
-obj[] ownedNFTs = GAME.NFT.ownedAssets(
+GAME.NFT.ownedAssets(
     player.id,    # str player id 
     collection,   # str name of collection
-    callback      # function unimplemented
+    callback      # function(bool succesful, obj[] assets) callback
 );
 ```
 ---
@@ -568,12 +568,12 @@ Allows you to get information on objects in the scene.
 ## Getting scene objects <Badge type="tip" text="client-side" /> <Badge type="tip" text="server-side" />
 
 ```krunkscript
-# Get a list of incomplete client scene objects
+# Get a list of minimal client scene objects
 obj[] objects = GAME.OBJECTS.list();
 ```
 
 ```krunkscript
-# Get a list of incomplete client scene objects
+# Get a list of minimal client scene objects
 obj[] nodes = GAME.OBJECTS.getPathNodes();
 ```
 
@@ -864,17 +864,17 @@ GAME.OVERLAY.arc(
 ---
 &nbsp;
 # Payment
-Allegidley works. Not functional during testing.
 
-## Spending & giving KR <Badge type="danger" text="broken"/>
+## Charging KR <Badge type="danger" text="broken"/>
 ```krunkscript
-# Charging KR from map
+# Charging KR from map, non-functional.
 GAME.PAYMENTS.charge();             # unknown
 ```
 
+## Giving KR
 ```krunkscript
 GAME.PAYMENTS.giveKR(
-    player,                         # player object
+    player.id,                      # str player id
     0                               # int kr amount
 );
 ```
@@ -929,9 +929,8 @@ obj player = GAME.PLAYERS.findByID(
 );
 ```
 
-
 ```krunkscript
-# Disables player meshes (client)
+# Disables player meshes
 GAME.PLAYERS.disableMeshes();
 ```
 
@@ -1504,25 +1503,29 @@ num delta = GAME.TIME.fixedDelta();
 :::tip
 There is no rate-limiting on this feature.
 :::
-## Execute triggers <Badge type="tip" text="server-side" />
+
+## Execute triggers <Badge type="tip" text="server-side" /> <Badge type="danger" text="broken"/>
 TODO allegidly fixed
+:::danger
+removed due to security concerns
+:::
 ```krunkscript
 # Call a trigger
 GAME.TRIGGERS.execute(
     id,         # num trigger interface id
-    # todo trigger object
+    player.id   # str player id
 );
 ```
 
 ## Get trigger by interface ID <Badge type="tip" text="server-side" />
+TODO, looks like no workey
 ```krunkscript
 obj[] triggers = GAME.TRIGGERS.getByInterface(id);
 ```
 
 ## List triggers <Badge type="tip" text="server-side" /> <Badge type="tip" text="client-side" />
-
 ```krunkscript
-# Get a list of incomplete server scene objects
+# Get a list of minimal server scene objects
 obj[] triggers = GAME.TRIGGERS.list();
 ```
 ---

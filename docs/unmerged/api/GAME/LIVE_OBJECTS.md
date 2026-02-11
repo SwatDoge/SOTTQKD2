@@ -17,6 +17,6 @@ obj cube = GAME.LIVE_OBJECTS.addCube(
     10,     # num height
     10,     # num length
     0,      # num void (6 sized array of 0's and 1's, intended to represent which faces are enabled. Scrapped feature.)
-    {}      # TODO, incomplete scene object
+    {}      # TODO, minimal scene object
 );
 ```

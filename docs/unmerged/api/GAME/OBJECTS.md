@@ -9,12 +9,12 @@ Allows you to get information on objects in the scene.
 ## Getting scene objects <Badge type="tip" text="client-side" /> <Badge type="tip" text="server-side" />
 
 ```krunkscript
-# Get a list of incomplete client scene objects
+# Get a list of minimal client scene objects
 obj[] objects = GAME.OBJECTS.list();
 ```
 
 ```krunkscript
-# Get a list of incomplete client scene objects
+# Get a list of minimal client scene objects
 obj[] nodes = GAME.OBJECTS.getPathNodes();
 ```
 
